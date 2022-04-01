@@ -43,7 +43,11 @@ const App = () => {
   };
 
   const getTodos = () => {
-    setTodos(JSON.parse(localStorage.getItem("todos")));
+    if (localStorage.getItem("todos" === null)) {
+      localStorage.setItem("todos", JSON.stringify([]));
+    } else {
+      setTodos(JSON.parse(localStorage.getItem("todos")));
+    }
   };
 
   return (
